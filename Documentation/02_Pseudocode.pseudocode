@@ -1,0 +1,112 @@
+// Automatic Teller Machine (ATM) Functionality
+
+function ATM_System() 
+    do
+    // Step 1: Login
+    set attempt_count = 0
+    while attempt_count < 3 do
+        print "Enter username/account number:"
+        input username_or_account_number
+        print "Enter password:"
+        input password
+        if not ValidateLogin(username_or_account_number, password) then
+            print "Invalid credentials. Try again."
+            set attempt_count = attempt_count + 1
+        else
+            break
+        end
+    end
+    if attempt_count == 3 then
+        print "Too many failed attempts. Exiting system."
+        return
+    end
+
+    // Step 2: Main Menu
+    do
+        print "1. Check Balance\n2. Deposit Money\n3. Withdraw Money\n4. Transfer Money\n5. Exit"
+        input user_choice
+        switch user_choice do
+            case 1:
+                CheckBalance()
+                break
+            case 2:
+                DepositMoney()
+                break
+            case 3:
+                WithdrawMoney()
+                break
+            case 4:
+                TransferMoney()
+                break
+            case 5:
+                print "Thank you for using the ATM."
+                return
+            default:
+                print "Invalid choice. Please select a valid option."
+        end
+    while user_choice != 5
+end
+
+// Function Definitions
+
+function ValidateLogin(username_or_account_number, password) do
+    // Simulate validation
+    return true // Replace with actual logic
+end
+
+function CheckBalance() do
+    print "Your current balance is: ${user_balance}"
+end
+
+function DepositMoney() do
+    print "Enter deposit amount:"
+    input deposit_amount
+    set user_balance = user_balance + deposit_amount
+    print "Deposit successful. Updated balance: ${user_balance}"
+end
+
+function WithdrawMoney() do
+    print "Select withdrawal amount: 1. 50,000  2. 100,000  3. 300,000  4. Other"
+    input withdrawal_choice
+    if withdrawal_choice == 4 then
+        print "Enter withdrawal amount:"
+        input withdrawal_amount
+    else
+        set withdrawal_amount = switch withdrawal_choice do
+            case 1: 50000
+            case 2: 100000
+            case 3: 300000
+        end
+    end
+    if withdrawal_amount > user_balance then
+        print "Insufficient funds."
+    else
+        set user_balance = user_balance - withdrawal_amount
+        print "Withdrawal successful. Remaining balance: ${user_balance}"
+    end
+end
+
+function TransferMoney() do
+    print "Enter recipient account number:"
+    input recipient_account_number
+    print "Enter transfer amount:"
+    input transfer_amount
+    if not ValidateAccount(recipient_account_number) then
+        print "Invalid recipient account."
+    else if transfer_amount > user_balance then
+        print "Insufficient funds."
+    else
+        set user_balance = user_balance - transfer_amount
+        UpdateRecipientBalance(recipient_account_number, transfer_amount)
+        print "Transfer successful. Remaining balance: ${user_balance}"
+    end
+end
+
+function ValidateAccount(account_number) do
+    // Simulate validation
+    return true // Replace with actual logic
+end
+
+function UpdateRecipientBalance(account_number, amount) do
+    // Simulate updating the recipient's balance
+end

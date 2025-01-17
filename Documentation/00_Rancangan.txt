@@ -1,0 +1,17 @@
+Fitur Utama :
+
+1. Login
+    [] login menggunakan username/no rekening dan password yang sesuai
+    [] sistem memverifikasi berdasarkan data (json, csv, database)
+2. Cek Saldo
+    [] Menampilkan saldo pengguna
+3. Tarik Uang
+    [] Dapat menarik uang jika saldo mencukupi
+    [] Memperbarui saldo setelah transaksi berhasil
+4. Setor Uang
+    [] Menambah saldo dengan menyetorkan sejumlah uang
+5. Transfer antar Pengguna
+    [] Dapat mentransfer sejumlah uang ke akun ke pengguna lain yang terdaftar berdasarkan no rekening
+    [] Sistem memverifikasi akun tujuan dan memastikan saldo cukup sebelum melakukan transfer 
+6. Logout
+    [] Setelah menyelesaikan transaksi, pengguna dapat keluar dasi sistem untuk mengamankan akunnya

@@ -1,0 +1,42 @@
+AUtomatic Teller Machine
+
+1. Login 
+    []  Pengguna memasukan username/no rekening dan password
+    []  Sistem memvalidasi data
+        [] jika gagal meminta ulang hingga benar
+        [] memiliki 3 kesempatan, jika kesempatan habis sistem berhenti
+
+2. Menu Utama
+    []  Setelah Login berhasil, pengguna akan melihat menu opsi
+        +-----------------------------------+
+        |   Pilih Opsi :                    |
+        |   1. Cek Saldo                    |
+        |   2. Setor Saldo                  |
+        |   3. Tarik Uang                   |
+        |   4. Transfer Uang                |
+        |   5. Keluar                       |  
+        +-----------------------------------+
+    
+    a.  Cek Saldo
+        Menampilkan Saldo terkini dan kembali ke menu utama 
+
+    b.  Setor Saldo
+        [] Pengguna memasukan jumlah uang yang akan disetor
+        [] Sistem memverifikasi jumlah Denom Uang dengan jumlah yang akan disetor (optional)
+        [] Sistem menambahkan jumlah tersebut ke saldo pengguna 
+
+    c.  Tarik Uang
+        [] Pengguna memilih Jumlah pilihan (50.000, 100.000, 300.000, jumlah penarikan lain)
+        [] Jumlah penarikan lain :
+            [] user memasukan jumlah uang yang ingin ditarik
+        [] Sistem memverifikasi saldo sebelum melanjutkan transaksi
+        [] Sistem mengurangi saldo user setelah transaksi berhasil 
+
+    d.  Transfer Uang
+        [] Pengguna memasukan no rekening penerima
+        [] Pengguna memasukan jumlah yang ingin ditransfer
+        [] Sistem memvalidasi username dan saldo sebelum memproses transfer
+        [] Sistem mentransfer saldo ke alamat tujuan dan mengurangi saldo dari pengirim
+        
+    e.  Keluar
+        [] Menutup Sistem

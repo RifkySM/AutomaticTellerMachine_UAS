@@ -14,7 +14,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         CommandHandler commandHandler = new CommandHandler(scanner, connection);
 
+        if (connection == null) {
+            System.out.println("Failed to connect to the database. Exiting...");
+            System.exit(1);
+        }
+
         commandHandler.start();
+
         User user = commandHandler.login();
 
         if (user == null) {

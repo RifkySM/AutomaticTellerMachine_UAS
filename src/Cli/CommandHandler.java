@@ -45,30 +45,41 @@ public class CommandHandler {
                 "               User Login",
                 "========================================");
 
-        String username = Helper.inputText(scanner, "Enter Username: ");
-        String password = Helper.inputPassword(scanner, "Enter Password: ");
-
         AuthRepository auth = new AuthRepository(connection);
+        int attempts = 0;
+        final int maxAttempts = 3;
 
-        Helper.loadingText("Signing in...");
+        while (attempts < maxAttempts) {
+            String username = Helper.inputText(scanner, "Enter Username: ");
+            String password = Helper.inputPassword(scanner, "Enter Password: ");
 
-        User user = auth.authenticate(username, password);
+            Helper.loadingText("Signing in...");
 
-        if (user == null) {
-            Helper.printLines(
-                    "----------------------------------------",
-                    "Error: Invalid credentials. Please try again.",
-                    "----------------------------------------");
-            return null;
+            User user = auth.authenticate(username, password);
+
+            if (user == null) {
+                attempts++;
+                Helper.clear();
+                Helper.printLines(
+                        "----------------------------------------",
+                        "Error: Invalid credentials. Please try again.",
+                        "Attempts remaining: " + (maxAttempts - attempts),
+                        "----------------------------------------");
+            } else {
+                Helper.printLines(
+                        "----------------------------------------",
+                        "Welcome back, " + user.name + "!",
+                        "You have successfully logged in.",
+                        "----------------------------------------");
+                return user;
+            }
         }
 
         Helper.printLines(
                 "----------------------------------------",
-                "Welcome back, " + user.name + "!",
-                "You have successfully logged in.",
+                "Error: Maximum login attempts exceeded. Please try again later.",
                 "----------------------------------------");
-
-        return user;
+        return null;
     }
 
     public static int menu() {

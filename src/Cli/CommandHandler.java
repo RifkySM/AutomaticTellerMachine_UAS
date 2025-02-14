@@ -224,7 +224,7 @@ public class CommandHandler {
         Account fromAccount = accountRepository.getUserAccount(user.id);
 
         String accountNumber = Helper.inputText(scanner, "Enter Destination Account Number:");
-        Helper.loadingText("Loading account details...");
+        Helper.loadingText("Loading account details");
         Helper.clear();
 
         Account toAccount = accountRepository.getUserAccountByAccountNumber(accountNumber);
@@ -266,7 +266,7 @@ public class CommandHandler {
 
         Helper.clear();
 
-        Helper.loadingText("Processing your transfer...");
+        Helper.loadingText("Processing your transfer");
         double newSenderBalance = fromAccount.balance - amount;
         double newRecipientBalance = toAccount.balance + amount;
 

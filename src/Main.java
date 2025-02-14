@@ -15,7 +15,7 @@ public class Main {
         CommandHandler commandHandler = new CommandHandler(scanner, connection);
 
         if (connection == null) {
-            System.out.println("Failed to connect to the database. Exiting...");
+            System.out.println("Failed to connect to the dqatabase. Exiting...");
             System.exit(1);
         }
 

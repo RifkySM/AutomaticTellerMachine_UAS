@@ -26,9 +26,7 @@ AUtomatic Teller Machine
         [] Sistem menambahkan jumlah tersebut ke saldo pengguna 
 
     c.  Tarik Uang
-        [] Pengguna memilih Jumlah pilihan (50.000, 100.000, 300.000, jumlah penarikan lain)
-        [] Jumlah penarikan lain :
-            [] user memasukan jumlah uang yang ingin ditarik
+        [] user memasukan jumlah uang yang ingin ditarik
         [] Sistem memverifikasi saldo sebelum melanjutkan transaksi
         [] Sistem mengurangi saldo user setelah transaksi berhasil 
 
